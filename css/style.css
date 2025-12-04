@@ -494,11 +494,13 @@ section {
 }
 
 .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    display: flex;
+    justify-content: center;
     gap: 1.5rem;
-    max-width: 850px;
+    max-width: 100%;
     margin: 0 auto;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
 
 .skill-badge {
@@ -512,6 +514,8 @@ section {
     border-radius: 10px;
     transition: all 0.3s ease;
     cursor: default;
+    flex-shrink: 0;
+    min-width: 80px;
 }
 
 .skill-badge:hover {
@@ -1487,7 +1491,8 @@ section {
     }
 
     .skills-grid {
-        grid-template-columns: 1fr;
+        justify-content: flex-start;
+        gap: 1rem;
     }
 
     .projects-grid {
