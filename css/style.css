@@ -1126,19 +1126,70 @@ section {
 /* Footer */
 .footer {
     background-color: var(--bg-secondary);
-    padding: 2rem 0;
-    text-align: center;
+    padding: 3rem 0 2rem;
     border-top: 1px solid var(--border-color);
 }
 
-.footer .container {
+.footer-content {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-social {
+    text-align: center;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
     justify-content: center;
     align-items: center;
 }
 
-.footer p {
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    border-color: var(--text-primary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.footer-bottom p {
     color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
 /* Animations */
