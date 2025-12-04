@@ -559,7 +559,7 @@ section {
 }
 
 .skill-badge[data-color="#CC785C"] .skill-icon-text {
-    background: linear-gradient(135deg, #CC785C 0%, #b86a50 100%);
+    background: linear-gradient(135deg, #D97757 0%, #C65D3B 100%);
 }
 
 .skill-badge:hover .skill-icon-text {
