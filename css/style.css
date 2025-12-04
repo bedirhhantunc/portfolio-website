@@ -528,13 +528,14 @@ section {
     justify-content: center;
 }
 
-.skill-icon svg {
+.skill-icon img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.skill-badge:hover .skill-icon svg {
+.skill-badge:hover .skill-icon img {
     transform: scale(1.05);
 }
 
@@ -543,6 +544,11 @@ section {
     font-weight: 600;
     color: var(--text-primary);
     text-align: center;
+}
+
+/* Dark mode skill icons */
+body.dark-mode .skill-icon img {
+    filter: brightness(1.2);
 }
 
 /* Timeline Section */
