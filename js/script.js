@@ -176,22 +176,27 @@ window.addEventListener('scroll', () => {
 });
 
 // Add fade-in animation to sections
-const fadeElements = document.querySelectorAll('.contact-item, .expertise-item');
+const fadeElements = document.querySelectorAll(
+    '.stat-item, .skill-badge, .timeline-item, .project-card, .expertise-item, .about-text, .quick-contact, .contact-form'
+);
+
 const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            // Add staggered delay for elements in the same section
+            setTimeout(() => {
+                entry.target.classList.add('fade-in-visible');
+            }, index * 100);
+            fadeObserver.unobserve(entry.target);
         }
     });
 }, {
-    threshold: 0.1
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 });
 
 fadeElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    element.classList.add('fade-in-element');
     fadeObserver.observe(element);
 });
 
