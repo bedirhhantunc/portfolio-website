@@ -1,12 +1,76 @@
+// Language System
+const translations = {
+    tr: {
+        typing: [
+            'Görsel İletişim Tasarımcı',
+            'Proje Koordinatörü',
+            'Yayın Editörü',
+            'QA & Test Uzmanı',
+            'Multidisipliner Yaratıcı'
+        ],
+        nav: {
+            home: 'Ana Sayfa',
+            expertise: 'Uzmanlık',
+            about: 'Hakkımda',
+            projects: 'Projeler',
+            contact: 'İletişim'
+        },
+        hero: {
+            btn1: 'Projeler',
+            btn2: 'İletişime Geç',
+            btn3: 'CV İndir'
+        },
+        sections: {
+            expertise: 'Uzmanlık Alanları',
+            about: 'Hakkımda',
+            skills: 'Kullandığım Araçlar',
+            timeline: 'Kariyer Yolculuğu',
+            projects: 'Projeler',
+            contact: 'İletişim'
+        },
+        stats: ['Yıl Deneyim', 'Tamamlanan Proje', 'Dijital Platform', 'Kullanıcıya Ulaşım'],
+        contactSubtitle: 'Bir proje için görüşmek isterseniz benimle iletişime geçebilirsiniz.',
+        footer: 'Tüm hakları saklıdır.'
+    },
+    en: {
+        typing: [
+            'Visual Communication Designer',
+            'Project Coordinator',
+            'Publishing Editor',
+            'QA & Test Specialist',
+            'Multidisciplinary Creative'
+        ],
+        nav: {
+            home: 'Home',
+            expertise: 'Expertise',
+            about: 'About',
+            projects: 'Projects',
+            contact: 'Contact'
+        },
+        hero: {
+            btn1: 'Projects',
+            btn2: 'Get in Touch',
+            btn3: 'Download CV'
+        },
+        sections: {
+            expertise: 'Areas of Expertise',
+            about: 'About Me',
+            skills: 'Tools I Use',
+            timeline: 'Career Journey',
+            projects: 'Projects',
+            contact: 'Contact'
+        },
+        stats: ['Years Experience', 'Completed Projects', 'Digital Platforms', 'User Reach'],
+        contactSubtitle: 'Feel free to reach out if you\'d like to discuss a project.',
+        footer: 'All rights reserved.'
+    }
+};
+
+let currentLang = localStorage.getItem('language') || 'tr';
+
 // Typing Effect for Hero Subtitle
 const typingText = document.getElementById('typingText');
-const texts = [
-    'Görsel İletişim Tasarımcı',
-    'Proje Koordinatörü',
-    'Yayın Editörü',
-    'QA & Test Uzmanı',
-    'Multidisipliner Yaratıcı'
-];
+let texts = translations[currentLang].typing;
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -39,7 +103,90 @@ function typeWriter() {
 
 // Start typing effect when page loads
 window.addEventListener('load', () => {
+    // Apply saved language on load
+    if (currentLang === 'en') {
+        changeLanguage('en');
+    }
     setTimeout(typeWriter, 1000);
+});
+
+// Language Toggle
+const langToggle = document.getElementById('langToggle');
+const langText = document.querySelector('.lang-text');
+
+// Set initial language
+if (currentLang === 'en') {
+    langText.textContent = 'TR';
+    document.documentElement.lang = 'en';
+}
+
+function changeLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('language', lang);
+    document.documentElement.lang = lang;
+
+    // Update button text
+    langText.textContent = lang === 'tr' ? 'EN' : 'TR';
+
+    // Update typing texts
+    texts = translations[lang].typing;
+    textIndex = 0;
+    charIndex = 0;
+    isDeleting = false;
+
+    // Update navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks[0].textContent = translations[lang].nav.home;
+    navLinks[1].textContent = translations[lang].nav.expertise;
+    navLinks[2].textContent = translations[lang].nav.about;
+    navLinks[3].textContent = translations[lang].nav.projects;
+    navLinks[4].textContent = translations[lang].nav.contact;
+
+    // Update hero buttons
+    const heroButtons = document.querySelectorAll('.hero-cta-buttons .btn');
+    if (heroButtons[0]) heroButtons[0].childNodes[0].textContent = translations[lang].hero.btn1;
+    if (heroButtons[1]) heroButtons[1].childNodes[0].textContent = translations[lang].hero.btn2;
+    if (heroButtons[2]) {
+        const cvBtn = heroButtons[2];
+        const svgElement = cvBtn.querySelector('svg');
+        cvBtn.childNodes.forEach(node => {
+            if (node.nodeType === 3) { // Text node
+                node.textContent = translations[lang].hero.btn3;
+            }
+        });
+    }
+
+    // Update section titles
+    document.querySelectorAll('.section-title').forEach((title, index) => {
+        const sectionKeys = ['expertise', 'about', 'skills', 'timeline', 'projects', 'contact'];
+        if (sectionKeys[index]) {
+            title.textContent = translations[lang].sections[sectionKeys[index]];
+        }
+    });
+
+    // Update stats
+    document.querySelectorAll('.stat-label').forEach((label, index) => {
+        if (translations[lang].stats[index]) {
+            label.textContent = translations[lang].stats[index];
+        }
+    });
+
+    // Update contact subtitle
+    const contactSubtitle = document.querySelector('.contact-subtitle');
+    if (contactSubtitle) {
+        contactSubtitle.textContent = translations[lang].contactSubtitle;
+    }
+
+    // Update footer
+    const footerText = document.querySelector('.footer-bottom p');
+    if (footerText) {
+        footerText.textContent = `© 2025 Bedirhan Tunç. ${translations[lang].footer}`;
+    }
+}
+
+langToggle.addEventListener('click', () => {
+    const newLang = currentLang === 'tr' ? 'en' : 'tr';
+    changeLanguage(newLang);
 });
 
 // CV Download Button (Placeholder)

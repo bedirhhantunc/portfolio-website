@@ -108,6 +108,12 @@ html {
     gap: 2rem;
 }
 
+.nav-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
 .nav-brand {
     font-size: 1.5rem;
     font-weight: bold;
@@ -170,6 +176,32 @@ html {
 }
 
 .theme-icon {
+    transition: transform 0.3s ease;
+}
+
+.lang-toggle {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.lang-toggle:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--text-primary);
+    transform: scale(1.05);
+}
+
+.lang-text {
     transition: transform 0.3s ease;
 }
 
@@ -1715,6 +1747,12 @@ section {
         display: block;
         padding: 0.5rem 0;
         font-size: 1.1rem;
+    }
+
+    .lang-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 0.75rem;
     }
 
     .theme-toggle {
