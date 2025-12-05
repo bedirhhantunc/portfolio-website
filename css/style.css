@@ -663,28 +663,38 @@ section {
     left: 20px;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--text-primary), var(--text-secondary));
+    width: 3px;
+    background: linear-gradient(to bottom, var(--text-primary) 0%, var(--text-primary) 50%, var(--border-color) 100%);
+    border-radius: 2px;
 }
 
 .timeline-item {
     position: relative;
     margin-bottom: 3rem;
     padding-left: 2rem;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.4s ease;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
     left: -35px;
-    top: 5px;
-    width: 12px;
-    height: 12px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background-color: var(--text-primary);
     border: 3px solid var(--bg-primary);
     box-shadow: 0 0 0 3px var(--text-primary);
     z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 5px var(--text-primary), 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .timeline-year {
@@ -693,20 +703,51 @@ section {
     color: var(--text-primary);
     margin-bottom: 0.5rem;
     letter-spacing: 1px;
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: var(--bg-secondary);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-year {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    transform: translateX(5px);
 }
 
 .timeline-content {
     background-color: var(--bg-card);
     padding: 1.5rem 2rem;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--text-primary), transparent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+}
+
+.timeline-content:hover::before {
+    transform: scaleY(1);
 }
 
 .timeline-content:hover {
-    transform: translateX(5px);
-    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.05);
+    transform: translateX(10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     border-color: var(--text-primary);
+    background-color: var(--bg-secondary);
 }
 
 .timeline-content h3 {
