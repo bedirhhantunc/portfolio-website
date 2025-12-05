@@ -230,13 +230,12 @@ fadeElements.forEach(element => {
     fadeObserver.observe(element);
 });
 
-// Add loading animation
+// Loading Screen
 window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
+    const loadingScreen = document.getElementById('loadingScreen');
     setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
+        loadingScreen.classList.add('hidden');
+    }, 800);
 });
 
 // Image Modal functionality
