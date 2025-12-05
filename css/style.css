@@ -181,28 +181,28 @@ html {
 
 .lang-toggle {
     background: transparent;
-    border: 2px solid var(--border-color);
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.5rem 0.8rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
 }
 
 .lang-toggle:hover {
     background-color: var(--bg-secondary);
     border-color: var(--text-primary);
-    transform: scale(1.05);
+    color: var(--text-primary);
 }
 
 .lang-text {
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 /* Hamburger Menu */
@@ -1749,9 +1749,12 @@ section {
         font-size: 1.1rem;
     }
 
+    .nav-controls {
+        gap: 0.75rem;
+    }
+
     .lang-toggle {
-        width: 40px;
-        height: 40px;
+        padding: 0.4rem 0.6rem;
         font-size: 0.75rem;
     }
 

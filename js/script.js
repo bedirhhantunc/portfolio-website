@@ -144,16 +144,14 @@ function changeLanguage(lang) {
 
     // Update hero buttons
     const heroButtons = document.querySelectorAll('.hero-cta-buttons .btn');
-    if (heroButtons[0]) heroButtons[0].childNodes[0].textContent = translations[lang].hero.btn1;
-    if (heroButtons[1]) heroButtons[1].childNodes[0].textContent = translations[lang].hero.btn2;
+    if (heroButtons[0]) heroButtons[0].textContent = translations[lang].hero.btn1;
+    if (heroButtons[1]) heroButtons[1].textContent = translations[lang].hero.btn2;
     if (heroButtons[2]) {
         const cvBtn = heroButtons[2];
-        const svgElement = cvBtn.querySelector('svg');
-        cvBtn.childNodes.forEach(node => {
-            if (node.nodeType === 3) { // Text node
-                node.textContent = translations[lang].hero.btn3;
-            }
-        });
+        const svg = cvBtn.querySelector('svg');
+        cvBtn.innerHTML = '';
+        if (svg) cvBtn.appendChild(svg);
+        cvBtn.appendChild(document.createTextNode(translations[lang].hero.btn3));
     }
 
     // Update section titles
