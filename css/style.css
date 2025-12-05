@@ -456,14 +456,6 @@ body.dark-mode .nav-logo:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.cv-download-btn svg {
-    transition: transform 0.3s ease;
-}
-
-.cv-download-btn:hover svg {
-    transform: translateY(2px);
-}
-
 /* Sections */
 section {
     padding: 80px 0;

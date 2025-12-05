@@ -18,7 +18,7 @@ const translations = {
         hero: {
             btn1: 'Projeler',
             btn2: 'İletişime Geç',
-            btn3: 'CV İndir'
+            btn3: 'CV'
         },
         sections: {
             expertise: 'Uzmanlık Alanları',
@@ -50,7 +50,7 @@ const translations = {
         hero: {
             btn1: 'Projects',
             btn2: 'Get in Touch',
-            btn3: 'Download CV'
+            btn3: 'CV'
         },
         sections: {
             expertise: 'Areas of Expertise',
@@ -146,13 +146,7 @@ function changeLanguage(lang) {
     const heroButtons = document.querySelectorAll('.hero-cta-buttons .btn');
     if (heroButtons[0]) heroButtons[0].textContent = translations[lang].hero.btn1;
     if (heroButtons[1]) heroButtons[1].textContent = translations[lang].hero.btn2;
-    if (heroButtons[2]) {
-        const cvBtn = heroButtons[2];
-        const svg = cvBtn.querySelector('svg');
-        cvBtn.innerHTML = '';
-        if (svg) cvBtn.appendChild(svg);
-        cvBtn.appendChild(document.createTextNode(translations[lang].hero.btn3));
-    }
+    if (heroButtons[2]) heroButtons[2].textContent = translations[lang].hero.btn3;
 
     // Update section titles
     document.querySelectorAll('.section-title').forEach((title, index) => {
