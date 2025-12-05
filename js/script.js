@@ -238,6 +238,88 @@ window.addEventListener('load', () => {
     }, 800);
 });
 
+// Project Details Data
+const projectDetails = {
+    methodor: {
+        title: 'METHODOR',
+        description: 'Dijital eğitim platformu. Öğrencilerin online eğitim alabileceği, interaktif içerikler sunabilen modern bir platform.',
+        role: 'Proje koordinasyonu ve QA süreçlerinde görev aldım. Platformun test süreçlerini yönettim, hata raporları oluşturdum ve geliştirme ekibiyle koordinasyon sağladım.',
+        tools: ['Jira', 'Slack', 'Browser DevTools', 'Figma'],
+        link: 'https://methodor.com/'
+    },
+    cokkolay: {
+        title: 'COKKOLAY',
+        description: 'Kapsamlı dijital eğitim platformu. Çoklu kullanıcı desteği, canlı dersler ve interaktif öğrenme modülleri sunuyor.',
+        role: 'Takım liderliği ve operasyon yönetimi yaptım. AR-GE ekibinin koordinasyonunu sağladım, sprint planlaması ve proje yönetimi sorumluluğu üstlendim.',
+        tools: ['Trello', 'Slack', 'Adobe XD', 'Analytics'],
+        link: 'https://cokkolay.com/'
+    },
+    nlcortex: {
+        title: 'NL CORTEX',
+        description: 'Öğrenme engeli tespit sistemi. Yapay zeka destekli analiz ile öğrencilerin öğrenme zorluklarını tespit eden akıllı platform.',
+        role: 'AR-GE ekibiyle proje koordinasyonunda yer aldım. Kalite kontrol süreçlerini yönettim ve test senaryoları oluşturdum.',
+        tools: ['Jira', 'Git', 'Testing Tools', 'Documentation'],
+        link: 'https://nlcortex.com/'
+    }
+};
+
+// Project Modal Functionality
+const projectModal = document.getElementById('projectModal');
+const projectCards = document.querySelectorAll('[data-project]');
+
+projectCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+        e.preventDefault();
+        const projectId = this.getAttribute('data-project');
+        const project = projectDetails[projectId];
+
+        if (project) {
+            document.getElementById('projectTitle').textContent = project.title;
+            document.getElementById('projectDescription').textContent = project.description;
+            document.getElementById('projectRole').textContent = project.role;
+            document.getElementById('projectLink').href = project.link;
+
+            // Add tools
+            const toolsContainer = document.getElementById('projectTools');
+            toolsContainer.innerHTML = '';
+            project.tools.forEach(tool => {
+                const badge = document.createElement('span');
+                badge.className = 'project-tool-badge';
+                badge.textContent = tool;
+                toolsContainer.appendChild(badge);
+            });
+
+            projectModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+// Close project modal
+const projectModalClose = document.querySelector('.project-modal-close');
+if (projectModalClose) {
+    projectModalClose.addEventListener('click', () => {
+        projectModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+}
+
+// Close modal when clicking outside
+projectModal.addEventListener('click', (e) => {
+    if (e.target === projectModal) {
+        projectModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+        projectModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
 // Image Modal functionality
 const modal = document.getElementById('imageModal');
 const modalImg = document.getElementById('modalImage');

@@ -289,40 +289,40 @@
             <h2 class="section-title">Projeler</h2>
             <div class="projects-grid">
                 <!-- Methodor Card -->
-                <a href="https://methodor.com/" target="_blank" class="project-card app-card methodor-card">
+                <div class="project-card app-card methodor-card" data-project="methodor">
                     <div class="project-image-wrapper app-card-wrapper">
                         <div class="app-icon">📚</div>
                         <div class="project-overlay app-card-overlay">
                             <h3>METHODOR</h3>
                             <p>Proje koordinasyonu ve QA süreçlerinde görev aldım</p>
-                            <span class="app-badge">Siteyi Ziyaret Et</span>
+                            <span class="app-badge">Detayları Gör</span>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- Cokkolay Card -->
-                <a href="https://cokkolay.com/" target="_blank" class="project-card app-card cokkolay-card">
+                <div class="project-card app-card cokkolay-card" data-project="cokkolay">
                     <div class="project-image-wrapper app-card-wrapper">
                         <div class="app-icon">🎓</div>
                         <div class="project-overlay app-card-overlay">
                             <h3>COKKOLAY</h3>
                             <p>Takım liderliği ve operasyon yönetimi yaptım</p>
-                            <span class="app-badge">Siteyi Ziyaret Et</span>
+                            <span class="app-badge">Detayları Gör</span>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- NL Cortex Card -->
-                <a href="https://nlcortex.com/" target="_blank" class="project-card app-card nlcortex-card">
+                <div class="project-card app-card nlcortex-card" data-project="nlcortex">
                     <div class="project-image-wrapper app-card-wrapper">
                         <div class="app-icon">🧠</div>
                         <div class="project-overlay app-card-overlay">
                             <h3>NL CORTEX</h3>
                             <p>AR-GE ekibiyle proje koordinasyonunda yer aldım</p>
-                            <span class="app-badge">Siteyi Ziyaret Et</span>
+                            <span class="app-badge">Detayları Gör</span>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- Portfolio PDF Card -->
                 <a href="https://drive.google.com/uc?export=download&id=1pPa8ttN7W0r8slx6aWckxHZoCzMW82GC" target="_blank" class="project-card portfolio-pdf-card">
@@ -449,6 +449,35 @@
             </div>
         </div>
     </footer>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close">&times;</span>
+            <div class="project-modal-body">
+                <h2 id="projectTitle"></h2>
+                <div class="project-modal-grid">
+                    <div class="project-detail-section">
+                        <h3>Proje Hakkında</h3>
+                        <p id="projectDescription"></p>
+                    </div>
+                    <div class="project-detail-section">
+                        <h3>Rolüm & Katkılarım</h3>
+                        <p id="projectRole"></p>
+                    </div>
+                    <div class="project-detail-section">
+                        <h3>Kullanılan Araçlar</h3>
+                        <div id="projectTools" class="project-tools"></div>
+                    </div>
+                    <div class="project-detail-section">
+                        <a id="projectLink" href="#" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">
+                            Siteyi Ziyaret Et →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Image Modal -->
     <div id="imageModal" class="modal">
