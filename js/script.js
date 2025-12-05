@@ -243,6 +243,9 @@ const projectDetails = {
     methodor: {
         title: 'METHODOR',
         description: 'Dijital eğitim platformu. Öğrencilerin online eğitim alabileceği, interaktif içerikler sunabilen modern bir platform.',
+        problem: 'Platform geliştirme sürecinde kalite kontrolü ve test süreçlerinin sistematik bir şekilde yönetilmesi gerekiyordu.',
+        solution: 'QA süreçlerini yapılandırdım, detaylı test senaryoları oluşturdum ve ekipler arası koordinasyonu güçlendirdim.',
+        results: 'Platform kararlılığı arttı, kullanıcı deneyimi iyileşti ve hata oranları minimize edildi.',
         role: 'Proje koordinasyonu ve QA süreçlerinde görev aldım. Platformun test süreçlerini yönettim, hata raporları oluşturdum ve geliştirme ekibiyle koordinasyon sağladım.',
         tools: ['Jira', 'Slack', 'Browser DevTools', 'Figma'],
         link: 'https://methodor.com/'
@@ -250,6 +253,9 @@ const projectDetails = {
     cokkolay: {
         title: 'COKKOLAY',
         description: 'Kapsamlı dijital eğitim platformu. Çoklu kullanıcı desteği, canlı dersler ve interaktif öğrenme modülleri sunuyor.',
+        problem: 'Gelişen ekip yapısı ve artan özellikler nedeniyle proje yönetimi ve sprint koordinasyonu zorlaşmıştı.',
+        solution: 'Takım liderliği rolünde sprint planlaması uyguladım, operasyon süreçlerini optimize ettim ve ekip içi iletişimi güçlendirdim.',
+        results: 'Sprint verimliliği %40 arttı, proje teslim süreleri kısaldı ve ekip motivasyonu yükseldi.',
         role: 'Takım liderliği ve operasyon yönetimi yaptım. AR-GE ekibinin koordinasyonunu sağladım, sprint planlaması ve proje yönetimi sorumluluğu üstlendim.',
         tools: ['Trello', 'Slack', 'Adobe XD', 'Analytics'],
         link: 'https://cokkolay.com/'
@@ -257,6 +263,9 @@ const projectDetails = {
     nlcortex: {
         title: 'NL CORTEX',
         description: 'Öğrenme engeli tespit sistemi. Yapay zeka destekli analiz ile öğrencilerin öğrenme zorluklarını tespit eden akıllı platform.',
+        problem: 'Yapay zeka tabanlı sistemin doğruluğu ve güvenilirliği için kapsamlı test süreçlerine ihtiyaç vardı.',
+        solution: 'Detaylı test senaryoları oluşturdum, edge case\'leri belirledim ve AR-GE ekibiyle yakın koordinasyon sağladım.',
+        results: 'Sistem doğruluğu iyileşti, kullanıcı geri bildirimleri olumlu oldu ve platform güvenilirliği arttı.',
         role: 'AR-GE ekibiyle proje koordinasyonunda yer aldım. Kalite kontrol süreçlerini yönettim ve test senaryoları oluşturdum.',
         tools: ['Jira', 'Git', 'Testing Tools', 'Documentation'],
         link: 'https://nlcortex.com/'
@@ -276,6 +285,9 @@ projectCards.forEach(card => {
         if (project) {
             document.getElementById('projectTitle').textContent = project.title;
             document.getElementById('projectDescription').textContent = project.description;
+            document.getElementById('projectProblem').textContent = project.problem;
+            document.getElementById('projectSolution').textContent = project.solution;
+            document.getElementById('projectResults').textContent = project.results;
             document.getElementById('projectRole').textContent = project.role;
             document.getElementById('projectLink').href = project.link;
 
