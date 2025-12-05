@@ -181,18 +181,8 @@ langToggle.addEventListener('click', () => {
     changeLanguage(newLang);
 });
 
-// CV Download Button (Placeholder)
-const cvDownloadBtn = document.getElementById('cvDownloadBtn');
-if (cvDownloadBtn) {
-    cvDownloadBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        // TODO: CV hazır olduğunda aşağıdaki satırı uncomment edin ve linki güncelleyin
-        // window.open('assets/bedirhan-tunc-cv.pdf', '_blank');
-
-        // Şimdilik placeholder mesajı
-        alert('CV dosyası yakında eklenecek!');
-    });
-}
+// CV Button - Now links directly to CV page (https://bedirhhantunc.github.io/cv/)
+// No JavaScript needed, handled by href in HTML
 
 // Hamburger Menu Toggle
 const hamburger = document.getElementById('hamburger');
