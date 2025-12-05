@@ -42,6 +42,19 @@ window.addEventListener('load', () => {
     setTimeout(typeWriter, 1000);
 });
 
+// CV Download Button (Placeholder)
+const cvDownloadBtn = document.getElementById('cvDownloadBtn');
+if (cvDownloadBtn) {
+    cvDownloadBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // TODO: CV hazır olduğunda aşağıdaki satırı uncomment edin ve linki güncelleyin
+        // window.open('assets/bedirhan-tunc-cv.pdf', '_blank');
+
+        // Şimdilik placeholder mesajı
+        alert('CV dosyası yakında eklenecek!');
+    });
+}
+
 // Hamburger Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
